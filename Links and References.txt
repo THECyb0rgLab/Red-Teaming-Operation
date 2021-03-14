@@ -1,0 +1,7 @@
+https://book.hacktricks.xyz/
+https://www.ired.team/
+https://dmcxblue.gitbook.io/red-team-notes/
+https://chryzsh.gitbooks.io/darthsidious/content/
+https://thevillagehacker.gitbook.io/red-teaming/
+https://wald0.com/
+
