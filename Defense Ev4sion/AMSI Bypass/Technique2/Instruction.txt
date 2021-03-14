@@ -1,0 +1,6 @@
+INSTRUCTION: 
+	-	Encoding Commands: 
+	
+	Add-Type -TypeDefinition ([IO.File]::ReadAllText("$pwd\newamsibypass.cs")) -OutputAssembly "newamsibypass.dll" - To comple C3 to DLL
+	
+	Post-Exploit Module: https://github.com/aloksaurabh/OffenPowerSh

